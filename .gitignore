@@ -1,0 +1,11 @@
+# Abaikan file cache Jupyter & Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# Abaikan environment lokal
+venv/
+.env
+
+# Abaikan file dataset berukuran besar (opsional jika > 50MB)
+*.zip
