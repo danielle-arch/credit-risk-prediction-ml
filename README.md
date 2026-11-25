@@ -1,8 +1,7 @@
-# Credit Risk Prediction Model 🏦
-*A Machine Learning Portfolio for Data Science Internship*
+# Credit Risk Prediction Model 
 
 ## Project Overview
-Proyek ini membangun model klasifikasi Machine Learning (XGBoost) untuk memprediksi probabilitas gagal bayar (default) pada pengajuan kredit nasabah. Model ini dirancang untuk berfungsi sebagai *decision-support system* bagi analis kredit perbankan dalam meminimalkan risiko kerugian finansial (Non-Performing Loan).
+This project develops a machine learning classification model (XGBoost) to predict the probability of default on customer loan applications. The model is designed to serve as a *decision support system* for banking credit analysts to minimize the risk of financial loss (nonperforming loans).
 
 ## Tech Stack & Methodology
 * **Language:** Python
@@ -14,31 +13,32 @@ Proyek ini membangun model klasifikasi Machine Learning (XGBoost) untuk mempredi
   * Stratified Train-Test Splitting
 
 ## Business Insights (Feature Importance)
-Berdasarkan model AI yang telah dilatih, tiga faktor paling krusial yang menentukan apakah nasabah akan gagal bayar adalah:
-1. **Loan Grade (`loan_grade`):** 
+Based on the trained AI model, the three most critical factors determining whether a customer will default are:
+1. **Loan Grade (`loan_grade`):**
 
-Kategori risiko internal bank terbukti menjadi prediktor paling akurat.
+The bank’s internal risk category has proven to be the most accurate predictor.
 
-2. **Debt-to-Income Ratio (`loan_percent_income`):** 
+2. **Debt-to-Income Ratio (`loan_percent_income`):**
 
-Nasabah dengan persentase cicilan utang yang terlalu besar dibandingkan total gaji bulanan memiliki risiko macet yang sangat tinggi.
+Customers whose debt payments as a percentage of their total monthly income are too high have a very high risk of default.
 
-3. **Home Ownership - RENT (`person_home_ownership_RENT`):** 
+3. **Home Ownership - RENT (`person_home_ownership_RENT`):**
 
-Nasabah yang masih berstatus menyewa tempat tinggal menunjukkan kerentanan finansial yang lebih tinggi dibandingkan pemilik rumah.
+Customers who are still renting their homes exhibit higher financial vulnerability compared to homeowners.
+
 
 ## Model Performance (XGBoost Baseline)
-Model dievaluasi menggunakan *testing data* (20% dari populasi) yang steril dari *data leakage* dan duplikasi.
+The model was evaluated using *testing data* (20% of the population) that was free of *data leakage* and duplicates.
 * **ROC-AUC Score:** 0.9465 (Excellent)
-* **Precision (Class 1 - Default):** 80% 
+* **Precision (Class 1 - Default):** 80%
 * **Recall (Class 1 - Default):** 79%
 
-*Artinya, model berhasil mendeteksi 79% dari total nasabah yang benar-benar macet, dan ketika model membunyikan alarm peringatan "Gagal Bayar", tingkat akurasi tuduhan tersebut mencapai 80%.*
+*This means that the model successfully detected 79% of all customers who were actually in default, and when the model triggered a “Default” warning, the accuracy rate of that alert reached 80%.*
 
 ## How to Use (Inference)
-Model yang telah dilatih tersimpan sebagai `xgboost_credit_risk.pkl`. Untuk melakukan pengetesan prediksi pada nasabah baru:
+The trained model is saved as `xgboost_credit_risk.pkl`. To test predictions on new customers:
 
-1. Buka terminal dan masuk ke folder `src`.
-2. Jalankan script prediksi:
+1. Open a terminal and navigate to the `src` folder.
+2. Run the prediction script:
    ```bash
    python predict.py
